@@ -1,0 +1,25 @@
+# Next.js
+.next
+out
+node_modules
+.env.local
+.env.*.local
+
+# Dependencies
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build
+dist
+build
