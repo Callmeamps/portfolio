@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THE BLUEPRINT | CHAOS_GEN</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:wght@400;600;700&amp;family=Space+Mono&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton:wght@100..900&amp;family=Hanken+Grotesk:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#f4ede5",
+                    "on-tertiary-fixed-variant": "#005235",
+                    "on-background": "#1e1b17",
+                    "on-tertiary-container": "#4d9873",
+                    "outline-variant": "#c5c6cc",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#ff6153",
+                    "inverse-surface": "#33302b",
+                    "background": "#fff8f1",
+                    "tertiary-container": "#002918",
+                    "on-error-container": "#93000a",
+                    "primary-fixed-dim": "#bec7db",
+                    "on-primary-fixed-variant": "#3e4758",
+                    "secondary": "#b22a23",
+                    "primary": "#040d1b",
+                    "surface-container-low": "#faf2ea",
+                    "on-secondary-fixed-variant": "#900e0e",
+                    "on-secondary": "#ffffff",
+                    "on-surface": "#1e1b17",
+                    "primary-fixed": "#dae3f7",
+                    "on-tertiary": "#ffffff",
+                    "error": "#ba1a1a",
+                    "tertiary-fixed": "#a5f3c8",
+                    "surface-container-high": "#eee7df",
+                    "surface-bright": "#fff8f1",
+                    "on-primary": "#ffffff",
+                    "primary-container": "#1a2332",
+                    "surface-variant": "#e8e1da",
+                    "inverse-primary": "#bec7db",
+                    "secondary-fixed": "#ffdad5",
+                    "outline": "#75777d",
+                    "on-tertiary-fixed": "#002113",
+                    "surface-tint": "#565f70",
+                    "error-container": "#ffdad6",
+                    "surface-container-highest": "#e8e1da",
+                    "on-surface-variant": "#45474c",
+                    "on-secondary-fixed": "#410001",
+                    "inverse-on-surface": "#f7f0e8",
+                    "secondary-fixed-dim": "#ffb4aa",
+                    "on-primary-container": "#818a9d",
+                    "tertiary-fixed-dim": "#8ad6ad",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#fff8f1",
+                    "tertiary": "#001007",
+                    "surface-dim": "#e0d9d1",
+                    "on-secondary-container": "#650003",
+                    "on-primary-fixed": "#131c2a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "16px",
+                    "tilt-secondary": "1.5deg",
+                    "margin-safe": "32px",
+                    "tilt-primary": "-2deg",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Anton"],
+                    "body-md": ["Hanken Grotesk"],
+                    "annotation": ["Space Mono"],
+                    "headline-xl": ["Anton"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "sticker-label": ["Anton"],
+                    "headline-lg-mobile": ["Anton"]
+            },
+            "fontSize": {
+                    "headline-lg": ["80px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "600"}],
+                    "annotation": ["14px", {"lineHeight": "18px", "fontWeight": "400"}],
+                    "headline-xl": ["120px", {"lineHeight": "100px", "letterSpacing": "-0.04em", "fontWeight": "400"}],
+                    "body-lg": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                    "sticker-label": ["18px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["48px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .glow-background {
+        background: radial-gradient(circle, rgba(255, 97, 83, 0.15) 0%, rgba(255, 248, 241, 0) 70%);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .noise-overlay {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+        opacity: 0.05;
+        pointer-events: none;
+        z-index: 60;
+      }
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        animation: marquee 20s linear infinite;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden selection:bg-secondary-container selection:text-white">
+<div class="noise-overlay"></div>
+<!-- Top Navigation (Shell Implementation) -->
+<nav class="flex flex-col items-end gap-2 fixed top-[32px] right-[32px] z-50">
+<a class="font-sticker-label text-sticker-label text-on-surface bg-surface-container border-2 border-primary rotate-tilt-primary shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] px-4 py-1 hover:scale-105 hover:bg-secondary-container transition-transform active:scale-95 duration-75" href="#">
+            WORKS
+        </a>
+<a class="font-sticker-label text-sticker-label text-on-primary bg-secondary border-2 border-primary -rotate-tilt-secondary shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] px-4 py-1 hover:scale-105 hover:bg-secondary-container transition-transform active:scale-95 duration-75" href="#">
+            ABOUT
+        </a>
+<a class="font-sticker-label text-sticker-label text-on-surface bg-surface-container border-2 border-primary rotate-1 shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] px-4 py-1 hover:scale-105 hover:bg-secondary-container transition-transform active:scale-95 duration-75" href="#">
+            CONTACT
+        </a>
+<a class="font-sticker-label text-sticker-label text-on-surface bg-surface-container border-2 border-primary -rotate-2 shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] px-4 py-1 hover:scale-105 hover:bg-secondary-container transition-transform active:scale-95 duration-75" href="#">
+            SHOP!
+        </a>
+</nav>
+<!-- Side Navigation (Web Shell) -->
+<aside class="hidden lg:flex flex-col p-8 gap-6 h-screen w-80 fixed left-0 top-0 border-r-4 border-primary bg-surface shadow-[8px_0px_0px_0px_rgba(4,13,27,1)] z-40">
+<div class="flex items-center gap-4 mb-8">
+<div class="w-16 h-16 border-2 border-primary p-1 bg-white -rotate-3 overflow-hidden shadow-[4px_4px_0px_0px_rgba(4,13,27,1)]">
+<img alt="Eccentric Creator Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLumNcMr06-02K_NQdw6J57fhtK2G05dP9_ZgMbffmCMtSYoAH0VvEgIy-eBJZoAacIgRsTm01oOCnMFfczqblyDvC_HQXUND9_tm8mDR6iDjKXfVYFwDOkvD1eJPIZohBrRx__hPUj8dLXvlz9idxC6_CrDtPsJ5PnVyh8ZmARd9U0EMmnTI_0ZzPK0EJP-KDpIn-Ybt9NuU5sQM5jA-a1QrtleNUbKw16rZ_gQUGN4NfoQ3eXwSmbSZHk"/>
+</div>
+<div>
+<h2 class="font-headline-lg text-[32px] leading-none text-primary uppercase">STAY LOUD</h2>
+<p class="font-annotation text-annotation uppercase opacity-70">NOISE ONLY</p>
+</div>
+</div>
+<nav class="flex flex-col gap-4">
+<a class="flex items-center gap-3 text-primary hover:skew-x-2 transition-all px-4 py-2 text-body-lg font-headline-lg" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span> WORKS
+            </a>
+<a class="flex items-center gap-3 bg-secondary text-on-secondary font-bold -rotate-1 px-4 py-2 border-2 border-primary shadow-[4px_4px_0px_0px_rgba(4,13,27,1)]" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span> ABOUT
+            </a>
+<a class="flex items-center gap-3 text-primary hover:skew-x-2 transition-all px-4 py-2 text-body-lg font-headline-lg" href="#">
+<span class="material-symbols-outlined" data-icon="mail">mail</span> CONTACT
+            </a>
+<a class="flex items-center gap-3 text-primary hover:skew-x-2 transition-all px-4 py-2 text-body-lg font-headline-lg" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span> SHOP!
+            </a>
+</nav>
+<div class="mt-auto">
+<button class="w-full bg-primary text-on-primary font-headline-lg text-xl py-4 border-2 border-primary shadow-[6px_6px_0px_0px_rgba(178,42,35,1)] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all">
+                GET IN TOUCH
+            </button>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="min-h-screen lg:ml-80 relative flex flex-col items-center justify-center p-8 lg:p-16">
+<!-- Background Elements -->
+<div class="absolute inset-0 glow-background pointer-events-none"></div>
+<div class="absolute top-1/4 left-1/4 opacity-10 pointer-events-none -z-10 select-none">
+<h1 class="font-headline-xl text-primary transform scale-[2] rotate-12">CHAOS</h1>
+</div>
+<!-- Hero Section mimicking IMAGE_31 -->
+<section class="relative z-10 w-full max-w-5xl text-center">
+<!-- Hand-drawn stickers -->
+<div class="absolute -top-16 left-0 lg:left-20 transform -rotate-12">
+<span class="font-annotation text-4xl lg:text-6xl text-primary/40 font-bold uppercase tracking-widest whitespace-nowrap">#OFF-GRID</span>
+</div>
+<!-- Main Heading -->
+<div class="relative inline-block">
+<div class="absolute -top-10 -left-10 text-secondary transform -rotate-45">
+<span class="material-symbols-outlined text-4xl" data-icon="keyboard_double_arrow_up">keyboard_double_arrow_up</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary uppercase select-none relative z-10 mix-blend-multiply">
+                    STAY LOUD
+                </h1>
+<div class="absolute -bottom-4 -right-8 transform rotate-12 bg-on-tertiary-container text-white px-2 py-0 font-annotation text-xl border-2 border-primary shadow-[2px_2px_0px_0px_rgba(4,13,27,1)]">
+                    OK
+                </div>
+<div class="absolute inset-0 bg-secondary-container/10 blur-3xl -z-10 rounded-full scale-150"></div>
+</div>
+<!-- Content Card (Bento-ish Punk Layout) -->
+<div class="mt-20 grid grid-cols-1 md:grid-cols-12 gap-8 relative">
+<!-- Stamp Badge -->
+<div class="absolute -top-12 -left-6 md:-left-12 z-20 w-32 h-32 rounded-full border-4 border-primary bg-white p-2 transform -rotate-12 shadow-[8px_8px_0px_0px_rgba(178,42,35,1)] flex items-center justify-center overflow-hidden">
+<img alt="Architect Stamp" class="w-full h-full object-cover grayscale contrast-125" src="https://lh3.googleusercontent.com/aida/AP1WRLumNcMr06-02K_NQdw6J57fhtK2G05dP9_ZgMbffmCMtSYoAH0VvEgIy-eBJZoAacIgRsTm01oOCnMFfczqblyDvC_HQXUND9_tm8mDR6iDjKXfVYFwDOkvD1eJPIZohBrRx__hPUj8dLXvlz9idxC6_CrDtPsJ5PnVyh8ZmARd9U0EMmnTI_0ZzPK0EJP-KDpIn-Ybt9NuU5sQM5jA-a1QrtleNUbKw16rZ_gQUGN4NfoQ3eXwSmbSZHk"/>
+</div>
+<!-- Intro Text -->
+<div class="md:col-span-8 bg-white border-4 border-primary p-12 text-left relative shadow-[12px_12px_0px_0px_rgba(4,13,27,1)] transform -rotate-1">
+<div class="absolute top-0 right-0 w-12 h-12 bg-secondary flex items-center justify-center text-white font-bold border-l-4 border-b-4 border-primary">
+                        !
+                    </div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-5xl text-primary mb-6 uppercase">The Manifesto</h2>
+<p class="font-body-lg text-body-lg text-primary/80 leading-relaxed mb-8">
+                        We don't build sites. We curate digital eruptions. In an age of clinical grids and corporate white-space, we choose noise. We choose chaos. The Blueprint isn't a plan—it's a refusal to follow the line.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<span class="bg-tertiary-container text-tertiary-fixed px-3 py-1 font-annotation text-sm border-2 border-primary">#PUNK_TECH</span>
+<span class="bg-primary text-on-primary px-3 py-1 font-annotation text-sm border-2 border-primary">#NON_GRID</span>
+<span class="bg-surface-variant text-primary px-3 py-1 font-annotation text-sm border-2 border-primary">#BEYOND_POLISH</span>
+</div>
+</div>
+<!-- Secondary Block -->
+<div class="md:col-span-4 flex flex-col gap-8">
+<div class="bg-secondary-container border-4 border-primary p-6 shadow-[8px_8px_0px_0px_rgba(4,13,27,1)] rotate-2">
+<h3 class="font-sticker-label text-2xl text-white uppercase mb-2">Our Vibe</h3>
+<p class="font-annotation text-white/90 text-sm">Aggressive minimalism. Violent color. Absolute precision hidden in the static.</p>
+</div>
+<div class="bg-surface-container-high border-4 border-primary p-6 shadow-[8px_8px_0px_0px_rgba(4,13,27,1)] -rotate-1 group hover:bg-tertiary-fixed transition-colors">
+<h3 class="font-sticker-label text-2xl text-primary uppercase mb-2">Join The Void</h3>
+<p class="font-body-md text-primary mb-4">Ready to break the internet properly?</p>
+<a class="inline-block bg-primary text-on-primary px-4 py-2 font-headline-lg hover:scale-105 transition-transform" href="#">INQUIRE -&gt;</a>
+</div>
+</div>
+<!-- Decorative Tapes -->
+<div class="hidden md:block absolute -bottom-6 right-20 w-48 h-10 bg-on-tertiary-fixed-variant/40 rotate-12 -z-10 blur-[1px]"></div>
+<div class="hidden md:block absolute top-1/2 -right-10 w-40 h-8 bg-secondary/30 -rotate-45 -z-10"></div>
+</div>
+</section>
+<!-- Stats Grid (Bento) -->
+<section class="mt-32 w-full max-w-5xl grid grid-cols-2 md:grid-cols-4 gap-4 pb-40">
+<div class="aspect-square bg-white border-2 border-primary p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] group hover:-translate-y-2 transition-transform">
+<span class="font-annotation text-xs opacity-50">SINCE</span>
+<span class="font-headline-lg text-6xl text-primary group-hover:text-secondary">2024</span>
+</div>
+<div class="aspect-square bg-primary border-2 border-primary p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(178,42,35,1)] rotate-3">
+<span class="font-annotation text-xs text-white/50">PROJECTS</span>
+<span class="font-headline-lg text-6xl text-white">404</span>
+</div>
+<div class="aspect-square bg-tertiary-fixed border-2 border-primary p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] -rotate-3 group hover:rotate-0 transition-transform">
+<span class="font-annotation text-xs text-primary/50">REBELS</span>
+<span class="font-headline-lg text-6xl text-primary group-hover:scale-110 transition-transform">12</span>
+</div>
+<div class="aspect-square bg-white border-2 border-primary p-4 flex flex-col justify-between shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] rotate-1">
+<span class="font-annotation text-xs opacity-50">STATUS</span>
+<span class="font-headline-lg text-4xl text-primary uppercase leading-tight">ACTIVE NOISE</span>
+</div>
+</section>
+</main>
+<!-- Footer (Shell implementation) -->
+<footer class="fixed bottom-0 w-full z-40 flex justify-between items-center px-[16px] py-2 bg-primary text-on-primary overflow-hidden whitespace-nowrap border-t-4 border-primary">
+<div class="flex items-center gap-12 animate-marquee">
+<span class="font-sticker-label text-sticker-label text-on-primary">CHAOS_GEN</span>
+<span class="font-annotation text-annotation opacity-80 uppercase">© NOISE ONLY // 2024</span>
+<span class="font-annotation text-annotation opacity-80 uppercase">PRIVACY IS DEAD</span>
+<span class="font-annotation text-annotation opacity-80 uppercase">TERMS ARE BOREDOM</span>
+<span class="font-annotation text-annotation opacity-80 uppercase">REFUND_VIBES: ZERO</span>
+<span class="font-sticker-label text-sticker-label text-on-primary">CHAOS_GEN</span>
+<span class="font-annotation text-annotation opacity-80 uppercase">STAY LOUD // STAY FAST</span>
+<span class="font-annotation text-annotation opacity-80 uppercase">THE BLUEPRINT HAS NO GRID</span>
+</div>
+<!-- Duplicate for seamless loop -->
+<div aria-hidden="true" class="flex items-center gap-12 animate-marquee">
+<span class="font-sticker-label text-sticker-label text-on-primary">CHAOS_GEN</span>
+<span class="font-annotation text-annotation opacity-80 uppercase">© NOISE ONLY // 2024</span>
+<span class="font-annotation text-annotation opacity-80 uppercase">PRIVACY IS DEAD</span>
+<span class="font-annotation text-annotation opacity-80 uppercase">TERMS ARE BOREDOM</span>
+<span class="font-annotation text-annotation opacity-80 uppercase">REFUND_VIBES: ZERO</span>
+<span class="font-sticker-label text-sticker-label text-on-primary">CHAOS_GEN</span>
+<span class="font-annotation text-annotation opacity-80 uppercase">STAY LOUD // STAY FAST</span>
+<span class="font-annotation text-annotation opacity-80 uppercase">THE BLUEPRINT HAS NO GRID</span>
+</div>
+</footer>
+<!-- Interactive Layer -->
+<script>
+        // Subtle tilt on mouse move for the main card
+        const card = document.querySelector('.md\\:col-span-8');
+        document.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 50;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 50;
+            if (card) {
+                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg) rotate(-1deg)`;
+            }
+        });
+
+        // Click interaction for stickers
+        document.querySelectorAll('.font-annotation').forEach(sticker => {
+            sticker.addEventListener('mousedown', () => {
+                sticker.classList.add('scale-90');
+            });
+            sticker.addEventListener('mouseup', () => {
+                sticker.classList.remove('scale-90');
+            });
+        });
+    </script>
+</body></html>

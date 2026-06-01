@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CONNECT - NOISE ONLY</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:wght@400;600;700&amp;family=Space+Mono:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e8e1da",
+                        "primary": "#040d1b",
+                        "secondary": "#b22a23",
+                        "background": "#fff8f1",
+                        "on-tertiary-container": "#4d9873",
+                        "outline-variant": "#c5c6cc",
+                        "error": "#ba1a1a",
+                        "surface-container-highest": "#e8e1da",
+                        "primary-fixed-dim": "#bec7db",
+                        "outline": "#75777d",
+                        "on-secondary-fixed-variant": "#900e0e",
+                        "on-primary-fixed": "#131c2a",
+                        "on-tertiary-fixed": "#002113",
+                        "tertiary": "#001007",
+                        "on-background": "#1e1b17",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "error-container": "#ffdad6",
+                        "on-primary-container": "#818a9d",
+                        "inverse-surface": "#33302b",
+                        "on-secondary-fixed": "#410001",
+                        "surface": "#fff8f1",
+                        "secondary-fixed": "#ffdad5",
+                        "on-tertiary-fixed-variant": "#005235",
+                        "inverse-on-surface": "#f7f0e8",
+                        "surface-container-low": "#faf2ea",
+                        "secondary-container": "#ff6153",
+                        "tertiary-fixed": "#a5f3c8",
+                        "on-secondary-container": "#650003",
+                        "on-error": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#1a2332",
+                        "surface-container-high": "#eee7df",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#3e4758",
+                        "on-surface-variant": "#45474c",
+                        "surface-bright": "#fff8f1",
+                        "primary-fixed": "#dae3f7",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#e0d9d1",
+                        "inverse-primary": "#bec7db",
+                        "tertiary-container": "#002918",
+                        "on-surface": "#1e1b17",
+                        "tertiary-fixed-dim": "#8ad6ad",
+                        "surface-tint": "#565f70",
+                        "surface-container": "#f4ede5",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "tilt-secondary": "1.5deg",
+                        "tilt-primary": "-2deg",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-safe": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Anton"],
+                        "headline-lg": ["Anton"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "sticker-label": ["Anton"],
+                        "body-md": ["Hanken Grotesk"],
+                        "annotation": ["Space Mono"],
+                        "headline-xl": ["Anton"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["48px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "headline-lg": ["80px", { "lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400" }],
+                        "body-lg": ["20px", { "lineHeight": "28px", "fontWeight": "700" }],
+                        "sticker-label": ["18px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
+                        "annotation": ["14px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "headline-xl": ["120px", { "lineHeight": "100px", "letterSpacing": "-0.04em", "fontWeight": "400" }]
+                    },
+                    "keyframes": {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' }
+                        }
+                    },
+                    "animation": {
+                        marquee: 'marquee 10s linear infinite'
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen overflow-x-hidden relative selection:bg-secondary selection:text-on-secondary">
+<!-- Background Watermark -->
+<div class="fixed inset-0 pointer-events-none flex items-center justify-center opacity-5 overflow-hidden z-0">
+<span class="font-headline-xl text-[400px] leading-none text-primary select-none">*</span>
+</div>
+<!-- Desktop SideNavBar (hidden md:flex) -->
+<nav class="hidden md:flex flex-col p-gutter gap-4 h-screen w-80 fixed left-0 top-0 border-r-4 border-primary shadow-[8px_0px_0px_0px_rgba(4,13,27,1)] bg-surface dark:bg-primary-container z-50">
+<div class="mb-8 mt-4 pl-4">
+<h1 class="font-headline-xl text-headline-mobile md:text-headline-lg text-primary leading-none tracking-tighter">STAY<br/>LOUD</h1>
+<p class="font-annotation text-annotation text-outline mt-2 uppercase tracking-widest border-b-2 border-primary inline-block">NOISE ONLY</p>
+</div>
+<div class="flex flex-col gap-3 font-body-md text-body-md mt-4">
+<a class="text-primary hover:bg-surface-variant hover:skew-x-2 transition-all px-4 py-2 flex items-center gap-3 border-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-2xl">grid_view</span> WORKS
+            </a>
+<a class="text-primary hover:bg-surface-variant hover:skew-x-2 transition-all px-4 py-2 flex items-center gap-3 border-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-2xl">person</span> ABOUT
+            </a>
+<!-- Active Nav Item -->
+<a class="bg-secondary text-on-secondary font-bold -rotate-1 px-4 py-2 border-2 border-primary flex items-center gap-3 shadow-[4px_4px_0px_0px_rgba(4,13,27,1)]" href="#">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">mail</span> CONTACT
+            </a>
+<a class="text-primary hover:bg-surface-variant hover:skew-x-2 transition-all px-4 py-2 flex items-center gap-3 border-2 border-transparent" href="#">
+<span class="material-symbols-outlined text-2xl">shopping_cart</span> SHOP!
+            </a>
+</div>
+<div class="mt-auto pb-8 pl-4">
+<button class="bg-primary text-on-primary font-sticker-label text-sticker-label px-6 py-3 border-2 border-primary shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] hover:bg-secondary hover:text-on-secondary hover:-translate-y-1 transition-all">
+                GET IN TOUCH
+            </button>
+</div>
+</nav>
+<!-- Mobile Top Nav Cluster (md:hidden) -->
+<nav class="md:hidden flex flex-col items-end gap-2 fixed top-margin-safe right-margin-safe z-50">
+<a class="font-sticker-label text-sticker-label text-on-surface bg-surface-container border-2 border-primary rotate-tilt-primary shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] px-3 py-1 hover:scale-105 hover:bg-secondary-container transition-transform" href="#">
+            WORKS
+        </a>
+<a class="font-sticker-label text-sticker-label text-on-surface bg-surface-container border-2 border-primary rotate-tilt-primary shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] px-3 py-1 hover:scale-105 hover:bg-secondary-container transition-transform" href="#">
+            ABOUT
+        </a>
+<!-- Active Nav Item -->
+<a class="font-sticker-label text-sticker-label text-on-primary bg-secondary border-2 border-primary -rotate-tilt-secondary shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] px-4 py-2 scale-110 z-10" href="#">
+            CONTACT
+        </a>
+<a class="font-sticker-label text-sticker-label text-on-surface bg-surface-container border-2 border-primary rotate-tilt-primary shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] px-3 py-1 hover:scale-105 hover:bg-secondary-container transition-transform" href="#">
+            SHOP!
+        </a>
+</nav>
+<!-- Main Content Canvas -->
+<main class="md:pl-[320px] pt-margin-safe pb-24 min-h-screen flex flex-col items-center justify-center relative z-10 px-4">
+<div class="mb-12 md:mb-20 text-center flex flex-col items-center relative">
+<div class="absolute -top-10 -left-10 w-24 h-24 bg-tertiary-fixed opacity-50 rounded-full blur-xl z-0"></div>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary relative z-10 inline-block bg-surface px-4 border-4 border-primary shadow-[8px_8px_0px_0px_rgba(4,13,27,1)] -rotate-1">
+                CONNECT
+            </h2>
+<p class="font-annotation text-annotation mt-4 bg-primary text-on-primary px-2 py-1 rotate-2 shadow-[2px_2px_0px_0px_rgba(178,42,35,1)] border-2 border-secondary">
+                DROP A LINE // LINK UP
+            </p>
+</div>
+<div class="flex flex-col gap-8 md:gap-12 w-full max-w-2xl relative z-20">
+<!-- Instagram Link -->
+<a class="group relative block w-full outline-none" href="#">
+<div class="absolute inset-0 bg-primary border-4 border-primary shadow-[12px_12px_0px_0px_rgba(4,13,27,1)] rotate-2 group-hover:rotate-1 group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-200"></div>
+<div class="relative bg-surface-variant text-primary border-4 border-primary px-8 py-6 md:py-8 flex items-center justify-between rotate-2 group-hover:rotate-1 group-hover:bg-primary group-hover:text-on-primary transition-all duration-200">
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase tracking-tighter">INSTAGRAM</span>
+<span class="material-symbols-outlined text-4xl md:text-6xl group-hover:rotate-12 transition-transform duration-300">arrow_outward</span>
+</div>
+</a>
+<!-- Twitter/X Link -->
+<a class="group relative block w-full outline-none -ml-4 md:-ml-8" href="#">
+<div class="absolute inset-0 bg-secondary border-4 border-primary shadow-[12px_12px_0px_0px_rgba(4,13,27,1)] -rotate-2 group-hover:-rotate-1 group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-200"></div>
+<div class="relative bg-primary text-on-primary border-4 border-primary px-8 py-6 md:py-8 flex items-center justify-between -rotate-2 group-hover:-rotate-1 group-hover:bg-secondary group-hover:text-on-secondary transition-all duration-200">
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase tracking-tighter">TWITTER / X</span>
+<span class="material-symbols-outlined text-4xl md:text-6xl group-hover:rotate-12 transition-transform duration-300">arrow_outward</span>
+</div>
+</a>
+<!-- Behance Link -->
+<a class="group relative block w-full outline-none ml-4 md:ml-12" href="#">
+<div class="absolute inset-0 bg-on-tertiary-container border-4 border-primary shadow-[12px_12px_0px_0px_rgba(4,13,27,1)] rotate-1 group-hover:rotate-0 group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-200"></div>
+<div class="relative bg-surface-variant text-primary border-4 border-primary px-8 py-6 md:py-8 flex items-center justify-between rotate-1 group-hover:rotate-0 group-hover:bg-on-tertiary-container group-hover:text-on-primary transition-all duration-200">
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase tracking-tighter">BEHANCE</span>
+<span class="material-symbols-outlined text-4xl md:text-6xl group-hover:rotate-12 transition-transform duration-300">arrow_outward</span>
+</div>
+</a>
+<!-- Discord Link -->
+<a class="group relative block w-full outline-none" href="#">
+<div class="absolute inset-0 bg-surface border-4 border-primary shadow-[12px_12px_0px_0px_rgba(178,42,35,1)] -rotate-3 group-hover:-rotate-2 group-hover:translate-x-1 group-hover:translate-y-1 transition-all duration-200"></div>
+<div class="relative bg-secondary text-on-secondary border-4 border-primary px-8 py-6 md:py-8 flex items-center justify-between -rotate-3 group-hover:-rotate-2 group-hover:bg-surface group-hover:text-primary transition-all duration-200">
+<span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase tracking-tighter">DISCORD</span>
+<span class="material-symbols-outlined text-4xl md:text-6xl group-hover:rotate-12 transition-transform duration-300">arrow_outward</span>
+</div>
+<!-- Decorative sticker -->
+<div class="absolute -top-4 -right-4 bg-tertiary text-on-tertiary font-annotation text-xs px-2 py-1 rotate-12 border-2 border-primary z-30 pointer-events-none">JOIN NOW</div>
+</a>
+</div>
+</main>
+<!-- Footer Marquee -->
+<footer class="fixed bottom-0 w-full z-40 bg-primary text-on-primary border-t-4 border-primary py-2 overflow-hidden flex items-center h-[48px]">
+<div class="flex whitespace-nowrap animate-marquee font-annotation text-annotation tracking-widest opacity-80 hover:opacity-100 hover:text-secondary-container transition-colors cursor-default">
+<span class="mx-4">STAY LOUD // NOISE ONLY // STAY LOUD // NOISE ONLY // STAY LOUD // NOISE ONLY // STAY LOUD // NOISE ONLY //</span>
+<span class="mx-4">STAY LOUD // NOISE ONLY // STAY LOUD // NOISE ONLY // STAY LOUD // NOISE ONLY // STAY LOUD // NOISE ONLY //</span>
+</div>
+</footer>
+</body></html>

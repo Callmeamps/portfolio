@@ -1,3 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;600;700&family=Space+Mono&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Base typography overrides */
+body {
+  font-family: 'Hanken Grotesk', sans-serif;
+  background-color: #fff8f1;
+  color: #1e1b17;
+}
+
+/* Custom pattern for paper texture */
+.bg-grain {
+  background-image: radial-gradient(#bec7db 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Marquee animation */
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Glitch hover effect */
+.glitch-hover:hover {
+  animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  transform: translate(2px, 2px);
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  20% { transform: skew(-2deg); }
+  40% { transform: skew(2deg); }
+  60% { transform: skew(-1deg); }
+  80% { transform: skew(1deg); }
+  100% { transform: skew(0deg); }
+}
+
+/* Sticker button style */
+.sticker-btn {
+  @apply px-4 py-2 border-2 border-primary font-sticker-label text-sticker-label font-bold transition-all;
+  box-shadow: 4px 4px 0px 0px rgba(4, 13, 27, 1);
+}
+
+.sticker-btn:hover {
+  @apply scale-105;
+}
+
+.sticker-btn-secondary {
+  @apply bg-secondary text-on-secondary;
+}
+
+.sticker-btn-primary {
+  @apply bg-primary text-on-primary;
+}
+
+/* Card with hard shadow */
+.chaos-card {
+  @apply border-2 border-primary bg-white p-4 transition-all;
+  box-shadow: 8px 8px 0px 0px rgba(4, 13, 27, 1);
+}
+
+.chaos-card:hover {
+  @apply scale-105 -rotate-1;
+}
+
+/* Text outline effect */
+.text-outline {
+  -webkit-text-stroke: 2px rgba(4, 13, 27, 0.15);
+  color: transparent;
+}
+
+/* Tilted elements */
+.tilt-1 { transform: rotate(-1.5deg); }
+.tilt-2 { transform: rotate(2deg); }
+.tilt-3 { transform: rotate(-2.5deg); }

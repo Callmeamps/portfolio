@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHAOS_GEN // ALL WORKS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:wght@600;700&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-container": "#002918",
+                        "outline-variant": "#c5c6cc",
+                        "tertiary": "#001007",
+                        "secondary-fixed-dim": "#ffb4aa",
+                        "inverse-surface": "#33302b",
+                        "surface-container-highest": "#e8e1da",
+                        "on-secondary-container": "#650003",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#f7f0e8",
+                        "surface-container-high": "#eee7df",
+                        "outline": "#75777d",
+                        "on-primary-container": "#818a9d",
+                        "tertiary-fixed-dim": "#8ad6ad",
+                        "on-secondary-fixed-variant": "#900e0e",
+                        "background": "#fff8f1",
+                        "secondary-container": "#ff6153",
+                        "primary-fixed-dim": "#bec7db",
+                        "secondary-fixed": "#ffdad5",
+                        "on-secondary-fixed": "#410001",
+                        "surface-tint": "#565f70",
+                        "inverse-primary": "#bec7db",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#a5f3c8",
+                        "on-tertiary-fixed-variant": "#005235",
+                        "on-tertiary-fixed": "#002113",
+                        "on-tertiary-container": "#4d9873",
+                        "on-surface-variant": "#45474c",
+                        "surface-variant": "#e8e1da",
+                        "surface-container-low": "#faf2ea",
+                        "primary": "#040d1b",
+                        "on-surface": "#1e1b17",
+                        "on-error": "#ffffff",
+                        "primary-container": "#1a2332",
+                        "surface-bright": "#fff8f1",
+                        "on-primary-fixed-variant": "#3e4758",
+                        "surface-container": "#f4ede5",
+                        "surface": "#fff8f1",
+                        "secondary": "#b22a23",
+                        "primary-fixed": "#dae3f7",
+                        "on-primary-fixed": "#131c2a",
+                        "surface-dim": "#e0d9d1",
+                        "on-tertiary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1e1b17",
+                        "error": "#ba1a1a",
+                        "on-secondary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "tilt-primary": "-2deg",
+                        "tilt-secondary": "1.5deg",
+                        "gutter": "16px",
+                        "margin-safe": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-xl": ["Anton"],
+                        "body-lg": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Anton"],
+                        "sticker-label": ["Anton"],
+                        "headline-lg": ["Anton"],
+                        "annotation": ["Space Mono"],
+                        "body-md": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-xl": ["120px", {"lineHeight": "100px", "letterSpacing": "-0.04em", "fontWeight": "400"}],
+                        "body-lg": ["20px", {"lineHeight": "28px", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["48px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "sticker-label": ["18px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "headline-lg": ["80px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                        "annotation": ["14px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .marquee {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .tilt-card-1 { transform: rotate(-1.5deg); }
+        .tilt-card-2 { transform: rotate(2deg); }
+        .tilt-card-3 { transform: rotate(-2.5deg); }
+        .bg-grain {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        .text-outline {
+            -webkit-text-stroke: 2px rgba(4, 13, 27, 0.15);
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface selection:bg-secondary selection:text-on-secondary min-h-screen relative overflow-x-hidden bg-grain">
+<!-- Top Navigation Cluster (Shared Component: TopAppBar) -->
+<nav class="flex flex-col items-end gap-2 fixed top-8 right-8 z-50">
+<a class="text-on-primary bg-secondary border-2 border-primary -rotate-[1.5deg] shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] px-2 font-sticker-label text-sticker-label hover:scale-105 hover:bg-secondary-container transition-transform active:scale-95 duration-75" href="#">WORKS</a>
+<a class="text-on-surface bg-surface-container border-2 border-primary rotate-[2deg] shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] px-2 font-sticker-label text-sticker-label hover:scale-105 hover:bg-secondary-container transition-transform active:scale-95 duration-75" href="#">ABOUT</a>
+<a class="text-on-surface bg-surface-container border-2 border-primary -rotate-[1deg] shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] px-2 font-sticker-label text-sticker-label hover:scale-105 hover:bg-secondary-container transition-transform active:scale-95 duration-75" href="#">CONTACT</a>
+<a class="text-on-surface bg-surface-container border-2 border-primary rotate-[1.5deg] shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] px-2 font-sticker-label text-sticker-label hover:scale-105 hover:bg-secondary-container transition-transform active:scale-95 duration-75" href="#">SHOP!</a>
+</nav>
+<!-- Background Decorative Text -->
+<div class="fixed inset-0 pointer-events-none select-none overflow-hidden z-0">
+<span class="absolute top-[10%] -left-[5%] font-headline-xl text-headline-xl opacity-[0.03] rotate-12 whitespace-nowrap">CHAOS_GEN CHAOS_GEN</span>
+<span class="absolute bottom-[20%] right-0 font-headline-xl text-headline-xl opacity-[0.03] -rotate-6 whitespace-nowrap">NOISE ONLY NOISE</span>
+</div>
+<main class="relative z-10 px-8 pt-20 pb-40">
+<!-- Hero Header -->
+<header class="mb-12">
+<h1 class="font-headline-xl text-[100px] md:text-headline-xl text-primary uppercase leading-[0.85] tracking-tighter">
+                SELECTED<br/>PROJECTS
+            </h1>
+</header>
+<!-- Filters (Sticker Row) -->
+<div class="flex flex-wrap gap-4 mb-24 items-center">
+<button class="bg-primary text-on-primary px-6 py-2 border-2 border-primary flex items-center gap-2 -rotate-1 shadow-[4px_4px_0px_0px_rgba(4,13,27,1)]">
+<span class="font-sticker-label text-sticker-label">ALL_WORKS</span>
+<span class="material-symbols-outlined text-[18px]">done</span>
+</button>
+<button class="bg-surface-container text-tertiary-fixed-dim px-6 py-2 border-2 border-primary rotate-2 shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] hover:rotate-0 transition-transform">
+<span class="font-sticker-label text-sticker-label">IDENTITY</span>
+</button>
+<button class="bg-surface-container text-secondary px-6 py-2 border-2 border-primary -rotate-2 shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] hover:rotate-0 transition-transform">
+<span class="font-sticker-label text-sticker-label">MOTION</span>
+</button>
+<button class="bg-surface-container text-secondary-container px-6 py-2 border-2 border-primary rotate-1 shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] hover:rotate-0 transition-transform">
+<span class="font-sticker-label text-sticker-label">ZINE</span>
+</button>
+<button class="bg-surface-container text-primary px-6 py-2 border-2 border-primary -rotate-1 shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] hover:rotate-0 transition-transform">
+<span class="font-sticker-label text-sticker-label">PACKAGING</span>
+</button>
+</div>
+<!-- Project Grid (Non-Linear) -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-y-32 relative">
+<!-- Project 01 -->
+<div class="md:col-span-7 relative group">
+<div class="absolute -top-16 -left-8 font-headline-xl text-[180px] text-outline z-0">01</div>
+<div class="relative z-10 bg-white p-4 shadow-[12px_12px_0px_0px_rgba(4,13,27,1)] border-2 border-primary tilt-card-1 transition-all group-hover:rotate-0 group-hover:scale-[1.02]">
+<div class="aspect-[4/3] bg-surface-container overflow-hidden mb-4">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="A high-contrast conceptual photography piece showing a gritty urban concrete landscape with aggressive red geometric spray-painted symbols. The lighting is harsh midday sun, casting deep black shadows. The composition is off-kilter and dynamic, following the eccentric punk-tech aesthetic with a raw, unpolished energy and tactile depth." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7NjnFBrY2nK-XGJjbM9yanHQQs_ez4-7uqbzZvKlGFPXH9rABpe7SIRHOIkqSv3g7yT_BeyvWJHp5MLIZoJqk1C0EvxK4GjGPAGtiKJQbyI_UhlzlvdP8ixSn-oZRK6-gM0JWxrt_iMJ16ULV-_rtL1pTU9UIki4sWJdtyOIyOqvYtnfbuJneBOjn_aQx82GYmEkf2avxqtAWiz1ll4L9SD1Xk0WyQJRA4A8NJTU2Zm6a8-tRXDijYD0w9_v4Mua4d_ec9ARyKzA"/>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-annotation text-annotation text-secondary mb-1">IDENTITY // 2023</p>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary leading-none uppercase">Void_Signal</h3>
+</div>
+<button class="bg-primary text-on-primary p-2 flex items-center justify-center">
+<span class="material-symbols-outlined">arrow_outward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Project 02 -->
+<div class="md:col-start-8 md:col-span-5 md:mt-40 relative group">
+<div class="absolute -top-12 right-0 font-headline-xl text-[180px] text-outline z-0">02</div>
+<div class="relative z-10 bg-white p-4 shadow-[12px_12px_0px_0px_rgba(4,13,27,1)] border-2 border-primary tilt-card-2 transition-all group-hover:rotate-0 group-hover:scale-[1.02]">
+<div class="aspect-square bg-surface-container overflow-hidden mb-4">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Abstract digital glitch art featuring vibrant red and acid green streaks across a deep navy background. The visual style is frantic and layered, resembling a physically torn digital screen. It captures a sense of tactile urgency and counter-culture energy with sharp edges and overlapping textures in a high-key lighting environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm0O1U1TgWpbnZ-Q7uSSsmAxwQqXQhK4I8lhFKJXI14zTDz1cc1GBgmfjdzu5JesxcdZKeGk27LL5fur5NcBY0PEXXmseY2kZBkbvnXjpgI4GP7qtpFb8itWYFu47mrjErzoF6h_5TVlkLO-1ADQLDcmQ_4OG7psQT0UAJzM011s8RraqznSS3viDIMV_yvcl26MkAxJDKasowDsRo87Twb0r6mYHfUfHXXmXYsysCHdCa5NZpnA2PJhSUPTIFANoLQaXwYphi_V4"/>
+</div>
+<div>
+<p class="font-annotation text-annotation text-tertiary-fixed-dim mb-1">ZINE // 2024</p>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary leading-none uppercase">Static_Pulse</h3>
+</div>
+</div>
+</div>
+<!-- Project 03 -->
+<div class="md:col-span-6 relative group md:-mt-12">
+<div class="absolute -top-16 -left-4 font-headline-xl text-[180px] text-outline z-0">03</div>
+<div class="relative z-10 bg-white p-4 shadow-[12px_12px_0px_0px_rgba(4,13,27,1)] border-2 border-primary tilt-card-3 transition-all group-hover:rotate-0 group-hover:scale-[1.02]">
+<div class="aspect-[16/10] bg-surface-container overflow-hidden mb-4">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="Minimalist product packaging design for a fictional tech brand. The box is stark white with bold black typography in Anton font and a single neon red 'sticker' label. The background is a clean, bright studio space. The image reflects an aggressive minimalism and a physical artifact feeling, emphasizing the sticker motif and heavy borders." src="https://lh3.googleusercontent.com/aida-public/AB6AXuADmvLN2tdO5GD-m2k1m6VZOUUS-kra6IOJT3Ri32ND8zqPRt5d1Wo6CdMafOVJB1J-wSHegQN54z503kibmLuGKX7n4C1IddOVyg51AiosdqkOrGKeztzJjr2vWu33ZE6EUps5hLIafCDzPOqRM21h6u6rno7DRgfSmaBB2QgU-DbL02oqYVQ_dk6RqmMa5VJtiEaw9Bed8sxKj9yZLRwnsUkiLh3a4VBbyvdgs2GnaNtHdfRdNaLM9VrOOxI3uWXfWZod9-mHgvQ"/>
+</div>
+<div class="flex justify-between items-end">
+<div>
+<p class="font-annotation text-annotation text-primary mb-1">PACKAGING // 2024</p>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary leading-none uppercase">Hard_Reset</h3>
+</div>
+<button class="bg-secondary text-on-secondary p-2 flex items-center justify-center">
+<span class="material-symbols-outlined">arrow_outward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Project 04 -->
+<div class="md:col-start-7 md:col-span-6 md:mt-24 relative group">
+<div class="absolute -top-16 right-8 font-headline-xl text-[180px] text-outline z-0">04</div>
+<div class="relative z-10 bg-white p-4 shadow-[12px_12px_0px_0px_rgba(4,13,27,1)] border-2 border-primary tilt-card-1 transition-all group-hover:rotate-0 group-hover:scale-[1.02]">
+<div class="aspect-video bg-surface-container overflow-hidden mb-4">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500" data-alt="A dynamic motion graphic frame featuring distorted typography and analog video noise textures. Deep navy and cream color palette with a single high-visibility yellow tape element. The lighting mimics a glowing old CRT monitor. The composition is crowded and energetic, embodying the digital chaos and punk-tech aesthetic of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUkulfQd1L7fbsmTfJXURfNF5SIaByiPjgC7vTRtClBmzxBHi1ka3rKnIK0iyYszUmliGJlmPUyG1kV2sJMb30LfWl4rtRZm23mTHQVZocZHDS5kbjSuktgS3yJutmpGqbcuSnW4BLRwJchpGRrWzAW6WpNXjq2ebTcPDDG3ZtdpZmEi5_axnb_ThayPjkAgNniOb6nWaTNvCGDjcYhwxamvp4rnYapyFSVK5SjF2EcPOlSYL_y1ZuKuMd3vn74IKQkltTgl_SIHA"/>
+</div>
+<div>
+<p class="font-annotation text-annotation text-secondary mb-1">MOTION // 2023</p>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-primary leading-none uppercase">Glitch_Stream</h3>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Marquee Footer (Shared Component: Footer) -->
+<footer class="fixed bottom-0 w-full z-40 bg-primary text-on-primary py-3 overflow-hidden border-t-4 border-primary">
+<div class="marquee whitespace-nowrap">
+<span class="font-annotation text-annotation tracking-widest px-4 uppercase italic">STAY LOUD // NOISE ONLY // 2024 // BREAK THE GRID // CHAOS_GEN // STAY LOUD // NOISE ONLY // 2024 // BREAK THE GRID // CHAOS_GEN // STAY LOUD // NOISE ONLY // 2024 // BREAK THE GRID // CHAOS_GEN // STAY LOUD // NOISE ONLY // 2024 // BREAK THE GRID // CHAOS_GEN</span>
+</div>
+</footer>
+<!-- Side Decoration (Shared Component: SideNavBar logic) -->
+<aside class="hidden lg:flex fixed left-0 top-0 h-screen w-20 flex-col items-center justify-center gap-8 border-r-4 border-primary bg-surface z-40">
+<div class="rotate-90 font-sticker-label text-sticker-label text-primary whitespace-nowrap tracking-widest flex items-center gap-4">
+<span class="material-symbols-outlined -rotate-90">noise_control_off</span>
+            STAY LOUD
+        </div>
+<div class="flex flex-col gap-4 mt-12">
+<div class="w-8 h-8 bg-secondary border-2 border-primary -rotate-12 shadow-[2px_2px_0px_0px_rgba(4,13,27,1)]"></div>
+<div class="w-8 h-8 bg-tertiary-fixed-dim border-2 border-primary rotate-12 shadow-[2px_2px_0px_0px_rgba(4,13,27,1)]"></div>
+<div class="w-8 h-8 bg-primary border-2 border-primary -rotate-6 shadow-[2px_2px_0px_0px_rgba(4,13,27,1)]"></div>
+</div>
+</aside>
+<script>
+        // Micro-interaction for stickers: random tilt on load
+        document.querySelectorAll('button').forEach(btn => {
+            const randomRotation = (Math.random() * 4 - 2).toFixed(2);
+            btn.style.setProperty('--tw-rotate', `${randomRotation}deg`);
+        });
+
+        // Hover sound effect simulation / scale
+        document.querySelectorAll('.group').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                // Potential for trigger light sound or vibration here
+            });
+        });
+    </script>
+</body></html>

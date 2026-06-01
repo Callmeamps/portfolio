@@ -2,59 +2,70 @@
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 py-20">
-      <div className="max-w-3xl text-center">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6">
-          <span className="gradient-text">Ntokozo Mthimunye</span>
-        </h1>
+    <section className="lg:pl-80 min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden pt-40 lg:pt-0 pb-40">
+      {/* Background floating elements */}
+      <div className="absolute top-1/4 left-1/4 -rotate-12 opacity-30 select-none pointer-events-none">
+        <span className="font-headline-xl text-headline-xl text-primary-fixed-dim">*</span>
+      </div>
+      <div className="absolute bottom-1/3 right-[10%] rotate-45 opacity-30 select-none pointer-events-none">
+        <span className="font-headline-xl text-headline-xl text-primary-fixed-dim">+</span>
+      </div>
 
-        <h2 className="text-2xl md:text-3xl text-slate-300 mb-6">
-          Full-Stack Developer • AI Engineer • Open Source Contributor
+      {/* Backdrop glitch text */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
+        <h2 className="font-headline-xl text-headline-xl text-primary tracking-tighter whitespace-nowrap text-[150px] lg:text-[200px]">
+          CHAOS GEN
+        </h2>
+      </div>
+
+      {/* Central composition */}
+      <div className="relative z-20 max-w-4xl text-center">
+        {/* Primary Hero Text */}
+        <h2 className="font-headline-xl text-headline-xl lg:text-[180px] text-primary tracking-tighter leading-none mb-6 glitch-hover -rotate-1" style={{textShadow: "8px 8px 0px #b22a23"}}>
+          NTOKOZO
         </h2>
 
-        <p className="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
-          Building intelligent systems, design tools, and agent orchestration
-          platforms. Passionate about open-source and pushing the boundaries of
-          what's possible with modern tech.
+        {/* Annotation */}
+        <div className="bg-primary text-on-primary font-annotation text-annotation px-4 py-2 mb-12 inline-block -rotate-tilt-primary border-2 border-primary" style={{boxShadow: "4px 4px 0px 0px #b22a23"}}>
+          <p>FULL-STACK ENGINEER // AI ARCHITECT</p>
+        </div>
+
+        {/* Subheading */}
+        <p className="text-body-lg font-bold text-on-surface mb-12 max-w-2xl mx-auto">
+          Building intelligent systems, design tools, and agent orchestration platforms with punk-tech chaos
         </p>
 
-        <div className="flex gap-4 justify-center flex-wrap">
+        {/* CTA Buttons */}
+        <div className="flex gap-4 justify-center flex-wrap mb-12">
           <a
             href="#featured"
-            className="btn btn-primary"
+            className="sticker-btn sticker-btn-secondary -rotate-1"
           >
-            View Featured Projects
+            ENTER THE VOID
           </a>
           <a
             href="https://github.com/Callmeamps"
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-secondary"
+            className="sticker-btn sticker-btn-primary rotate-2"
           >
-            GitHub Profile
-          </a>
-          <a
-            href="https://blog.callmeamps.one"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-secondary"
-          >
-            Blog
+            GITHUB
           </a>
         </div>
 
-        <div className="mt-12 grid grid-cols-3 gap-4 text-center">
-          <div>
-            <p className="text-3xl font-bold gradient-text">64</p>
-            <p className="text-sm text-slate-400">Public Repos</p>
+        {/* Stats Grid */}
+        <div className="grid grid-cols-3 gap-4 mt-12">
+          <div className="chaos-card tilt-1">
+            <p className="font-headline-lg text-headline-lg-mobile text-primary">64</p>
+            <p className="font-annotation text-annotation text-secondary">PUBLIC REPOS</p>
           </div>
-          <div>
-            <p className="text-3xl font-bold gradient-text">100%</p>
-            <p className="text-sm text-slate-400">Open Source</p>
+          <div className="chaos-card tilt-2">
+            <p className="font-headline-lg text-headline-lg-mobile text-primary">100%</p>
+            <p className="font-annotation text-annotation text-secondary">OPEN SOURCE</p>
           </div>
-          <div>
-            <p className="text-3xl font-bold gradient-text">∞</p>
-            <p className="text-sm text-slate-400">Passion</p>
+          <div className="chaos-card tilt-3">
+            <p className="font-headline-lg text-headline-lg-mobile text-primary">∞</p>
+            <p className="font-annotation text-annotation text-secondary">PASSION</p>
           </div>
         </div>
       </div>

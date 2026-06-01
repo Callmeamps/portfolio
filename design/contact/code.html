@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CHAOS_GEN // CONTACT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Hanken+Grotesk:wght@600;700&amp;family=Space+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-container-highest": "#e8e1da",
+                "on-secondary-fixed-variant": "#900e0e",
+                "surface-container-low": "#faf2ea",
+                "on-surface": "#1e1b17",
+                "secondary": "#b22a23",
+                "on-surface-variant": "#45474c",
+                "tertiary-container": "#002918",
+                "primary-container": "#1a2332",
+                "error-container": "#ffdad6",
+                "background": "#fff8f1",
+                "on-primary-container": "#818a9d",
+                "tertiary-fixed-dim": "#8ad6ad",
+                "primary-fixed-dim": "#bec7db",
+                "outline": "#75777d",
+                "on-tertiary-container": "#4d9873",
+                "on-primary-fixed-variant": "#3e4758",
+                "surface": "#fff8f1",
+                "secondary-container": "#ff6153",
+                "on-primary-fixed": "#131c2a",
+                "surface-tint": "#565f70",
+                "inverse-surface": "#33302b",
+                "surface-variant": "#e8e1da",
+                "inverse-on-surface": "#f7f0e8",
+                "inverse-primary": "#bec7db",
+                "tertiary-fixed": "#a5f3c8",
+                "secondary-fixed": "#ffdad5",
+                "on-error": "#ffffff",
+                "error": "#ba1a1a",
+                "surface-container-lowest": "#ffffff",
+                "surface-bright": "#fff8f1",
+                "primary": "#040d1b",
+                "on-background": "#1e1b17",
+                "secondary-fixed-dim": "#ffb4aa",
+                "on-tertiary-fixed-variant": "#005235",
+                "on-error-container": "#93000a",
+                "surface-dim": "#e0d9d1",
+                "outline-variant": "#c5c6cc",
+                "on-secondary": "#ffffff",
+                "on-secondary-fixed": "#410001",
+                "primary-fixed": "#dae3f7",
+                "tertiary": "#001007",
+                "surface-container-high": "#eee7df",
+                "on-secondary-container": "#650003",
+                "surface-container": "#f4ede5",
+                "on-primary": "#ffffff",
+                "on-tertiary-fixed": "#002113",
+                "on-tertiary": "#ffffff"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "unit": "4px",
+                "tilt-secondary": "1.5deg",
+                "margin-safe": "32px",
+                "gutter": "16px",
+                "tilt-primary": "-2deg"
+        },
+        "fontFamily": {
+                "annotation": [
+                        "Space Mono"
+                ],
+                "headline-xl": [
+                        "Anton"
+                ],
+                "headline-lg-mobile": [
+                        "Anton"
+                ],
+                "headline-lg": [
+                        "Anton"
+                ],
+                "body-lg": [
+                        "Hanken Grotesk"
+                ],
+                "sticker-label": [
+                        "Anton"
+                ],
+                "body-md": [
+                        "Hanken Grotesk"
+                ],
+                "handwriting": [
+                        "Shadows Into Light"
+                ]
+        },
+        "fontSize": {
+                "annotation": [
+                        "14px",
+                        {
+                                "lineHeight": "18px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-xl": [
+                        "120px",
+                        {
+                                "lineHeight": "100px",
+                                "letterSpacing": "-0.04em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "48px",
+                        {
+                                "lineHeight": "44px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "80px",
+                        {
+                                "lineHeight": "72px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "sticker-label": [
+                        "18px",
+                        {
+                                "lineHeight": "20px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body {
+            background-color: #f4efeb;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grain-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/p6.png");
+            mix-blend-mode: multiply;
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(255, 97, 83, 0.4);
+        }
+        .marquee-animation {
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .rotate-tilt-primary { transform: rotate(-2deg); }
+        .rotate-tilt-secondary { transform: rotate(1.5deg); }
+        
+        .sticker-btn {
+            @apply border-2 border-primary shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] active:scale-95 active:shadow-none transition-all;
+        }
+
+        /* Responsive custom tilts */
+        @media (max-width: 768px) {
+            .mobile-stack-gap { gap: 2rem; }
+        }
+        
+        .grid-lines {
+            background-image: 
+                linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .border-t-thick {
+            border-top: 8px solid #282828;
+        }
+        .border-b-thick {
+            border-bottom: 8px solid #282828;
+        }
+        .border-r-thick {
+            border-right: 8px solid #282828;
+        }
+        .border-l-thick {
+            border-left: 8px solid #282828;
+        }
+        .form-input-custom {
+            border: none;
+            border-bottom: 2px solid #282828;
+            background: transparent;
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 1.5rem;
+            color: #75777d;
+            padding: 0.5rem 0;
+            border-radius: 0;
+        }
+        .form-input-custom:focus {
+            outline: none;
+            box-shadow: none;
+            border-bottom: 2px solid #b22a23;
+            color: #1e1b17;
+        }
+        .form-input-custom::placeholder {
+            color: #75777d;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface min-h-screen selection:bg-secondary-container selection:text-white overflow-x-hidden">
+<!-- Background Layer -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="absolute inset-0 bg-surface"></div>
+<div class="absolute inset-0 grain-texture opacity-20"></div>
+</div>
+<!-- Header Info Bar -->
+<div class="relative z-10 flex justify-between items-center px-4 py-2 border-b-thick bg-surface">
+<div class="font-headline-lg-mobile text-2xl tracking-tight">EDITION NO. 066</div>
+<div class="flex gap-2">
+<a class="bg-[#282828] text-white px-3 py-1 font-body-md text-sm hover:bg-secondary transition-colors" href="#">HOME</a>
+<a class="bg-[#282828] text-white px-3 py-1 font-body-md text-sm hover:bg-secondary transition-colors" href="#">WORKS</a>
+<a class="bg-[#282828] text-white px-3 py-1 font-body-md text-sm hover:bg-secondary transition-colors" href="#">ABOUT</a>
+<a class="bg-secondary text-white px-3 py-1 font-body-md text-sm hover:bg-[#282828] transition-colors" href="#">SHOP!</a>
+</div>
+</div>
+<main class="relative z-10 w-full max-w-[1600px] mx-auto border-x-thick border-b-thick bg-surface min-h-screen">
+<!-- Big Headline Section -->
+<div class="relative w-full border-b-thick py-12 px-8 flex justify-center items-center overflow-hidden bg-surface">
+<div class="absolute top-4 left-16 -rotate-12 z-20">
+<span class="font-handwriting text-secondary text-4xl">DON'T BE SHY</span>
+</div>
+<div class="absolute top-8 right-32 w-24 h-24 rounded-full overflow-hidden border-4 border-surface shadow-[4px_4px_0px_0px_rgba(4,13,27,1)] -rotate-6 z-20 opacity-80 mix-blend-multiply">
+<img alt="Architect Seal" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AP1WRLumNcMr06-02K_NQdw6J57fhtK2G05dP9_ZgMbffmCMtSYoAH0VvEgIy-eBJZoAacIgRsTm01oOCnMFfczqblyDvC_HQXUND9_tm8mDR6iDjKXfVYFwDOkvD1eJPIZohBrRx__hPUj8dLXvlz9idxC6_CrDtPsJ5PnVyh8ZmARd9U0EMmnTI_0ZzPK0EJP-KDpIn-Ybt9NuU5sQM5jA-a1QrtleNUbKw16rZ_gQUGN4NfoQ3eXwSmbSZHk"/>
+</div>
+<h1 class="font-headline-xl text-[15vw] md:text-[220px] text-[#282828] leading-none tracking-tighter text-center w-full z-10">
+        HIT US UP
+    </h1>
+</div>
+<!-- Sub-header Info Bar -->
+<div class="flex justify-between items-center px-4 py-2 border-b-thick bg-surface text-sm font-bold uppercase">
+<div>PRICE: YOUR ATTENTION</div>
+<div>SHIBUYA DISTRICT // VOL. IV</div>
+<div class="relative">
+        WEATHER: CHAOTIC
+        <span class="absolute -top-4 -left-8 font-handwriting text-secondary text-2xl opacity-50 rotate-12">?</span>
+</div>
+</div>
+<!-- Main Content Area -->
+<div class="grid grid-cols-1 lg:grid-cols-12 min-h-[600px]">
+<!-- Left Side: Form -->
+<div class="lg:col-span-8 p-8 lg:p-16 relative">
+<div class="mb-12 inline-block bg-[#4d9873] text-white px-4 py-1 font-sticker-label text-xl -rotate-2 transform hover:rotate-0 transition-transform cursor-default">
+            FILL THIS OUT NOW!
+            <div class="absolute inset-0 border-2 border-[#282828] mix-blend-overlay"></div>
+</div>
+<form class="flex flex-col gap-12 max-w-3xl">
+<div class="relative group">
+<label class="block font-headline-lg-mobile text-3xl text-[#282828] mb-2">YOUR ALIAS / NAME</label>
+<input class="w-full form-input-custom" placeholder="WHO ARE YOU?" type="text"/>
+<span class="absolute right-0 bottom-4 font-handwriting text-secondary text-2xl opacity-0 group-focus-within:opacity-100 transition-opacity">!</span>
+</div>
+<div class="relative group">
+<label class="block font-headline-lg-mobile text-3xl text-[#282828] mb-2">ELECTRONIC MAIL</label>
+<input class="w-full form-input-custom" placeholder="WHERE DO WE REPLY?" type="email"/>
+<span class="absolute left-32 bottom-6 font-handwriting text-secondary text-2xl opacity-50 rotate-12">+</span>
+</div>
+<div class="relative group">
+<label class="block font-headline-lg-mobile text-3xl text-[#282828] mb-2">THE INTEL / MESSAGE</label>
+<textarea class="w-full form-input-custom resize-none" placeholder="SPILL THE DEETS..." rows="3"></textarea>
+</div>
+<button class="self-start mt-8 bg-secondary text-white px-8 py-4 font-headline-lg-mobile text-2xl tracking-widest hover:bg-[#282828] transition-colors border-2 border-[#282828] shadow-[6px_6px_0px_0px_rgba(40,40,40,1)] hover:translate-y-1 hover:translate-x-1 hover:shadow-[2px_2px_0px_0px_rgba(40,40,40,1)] active:shadow-none active:translate-y-2 active:translate-x-2" type="submit">
+                SEND SIGNAL &gt;&gt;&gt;
+            </button>
+</form>
+<!-- Tape effect -->
+<div class="absolute top-0 right-1/4 w-32 h-6 bg-white/40 backdrop-blur-sm -rotate-6 border border-black/10 mix-blend-overlay pointer-events-none"></div>
+</div>
+<!-- Right Side: Protocol -->
+<div class="lg:col-span-4 border-l-thick border-[#282828] p-8 lg:p-12 bg-[#faf9f6]">
+<h2 class="font-handwriting text-5xl md:text-6xl text-secondary leading-tight mb-12 -rotate-2">
+            OUR<br/>PROTOCOL
+        </h2>
+<div class="border-t-2 border-b-2 border-[#282828] py-8">
+<ol class="flex flex-col gap-8 font-body-lg text-xl text-[#282828] uppercase">
+<li class="pl-4 border-l-4 border-[#4d9873]">
+                    1. We only work with<br/>brave souls.
+                </li>
+<li class="pl-4 border-l-4 border-[#4d9873]">
+                    2. If it's boring, we won't<br/>do it.
+                </li>
+<li class="pl-4 border-l-4 border-[#4d9873]">
+                    3. Expect chaos. Deliver<br/>results.
+                </li>
+<li class="pl-4 border-l-4 border-[#4d9873]">
+                    4. No refunds on vibes.
+                </li>
+</ol>
+</div>
+</div>
+</div>
+</main>
+<!-- Designed In Footer tag (from document) -->
+<div class="fixed bottom-4 right-4 bg-[#282828] text-white p-4 rounded-xl flex items-center gap-2 z-50 shadow-lg">
+<div class="grid grid-cols-3 gap-1">
+<div class="w-1 h-1 bg-white rounded-full"></div>
+<div class="w-1 h-1 bg-white rounded-full"></div>
+<div class="w-1 h-1 bg-white rounded-full"></div>
+<div class="w-1 h-1 bg-white rounded-full"></div>
+<div class="w-1 h-1 bg-white rounded-full"></div>
+<div class="w-1 h-1 bg-white rounded-full"></div>
+</div>
+<span class="font-body-md text-sm text-gray-400">Designed in<br/><span class="text-white text-lg">variant</span></span>
+</div>
+<script>
+        // Subtle Mouse Movement interaction for atmospheric depth
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            // Move some background elements slightly
+            const bgText = document.querySelector('.fixed.inset-0 div:nth-child(3)');
+            if(bgText) {
+                bgText.style.transform = `translate(${x * 20}px, ${y * 20}px) rotate(12deg)`;
+            }
+        });
+    </script>
+</body></html>
