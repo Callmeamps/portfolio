@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Portfolio showcase for Ntokozo Mthimunye",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 33628",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 33628",
     "lint": "next lint"
   },
   "dependencies": {
