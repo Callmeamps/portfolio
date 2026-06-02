@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { PageNav } from "@/components/PageNav";
 import { Footer } from "@/components/Footer";
 import { Annotation } from "@/components/Annotation";

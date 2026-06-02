@@ -15,6 +15,12 @@ const item = {
   show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
+const stats = [
+  { value: "7", label: "PROJECTS" },
+  { value: "100%", label: "OPEN SOURCE" },
+  { value: "∞", label: "BUILDS" },
+];
+
 export function Hero() {
   return (
     <section className="lg:pl-56 min-h-[80vh] lg:min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden pt-24 lg:pt-0 pb-20 lg:pb-40">
@@ -103,21 +109,20 @@ export function Hero() {
           className="grid grid-cols-3 gap-4 mt-12"
           variants={item}
         >
-          {[
-            { value: "7", label: "PROJECTS" },
-            { value: "100%", label: "OPEN SOURCE" },
-            { value: "∞", label: "BUILDS" },
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              className={`chaos-card ${i === 0 ? "tilt-1" : i === 1 ? "tilt-2" : "tilt-3"}`}
-              whileHover={{ scale: 1.05, rotate: 0 }}
-              transition={{ duration: 0.2 }}
-            >
-              <p className="font-['Anton'] text-[48px] text-primary">{stat.value}</p>
-              <p className="font-annotation text-annotation text-secondary">{stat.label}</p>
-            </motion.div>
-          ))
+          {stats.map((stat, i) => {
+            const tiltClass = i === 0 ? "tilt-1" : i === 1 ? "tilt-2" : "tilt-3";
+            return (
+              <motion.div
+                key={stat.label}
+                className={`chaos-card ${tiltClass}`}
+                whileHover={{ scale: 1.05, rotate: 0 }}
+                transition={{ duration: 0.2 }}
+              >
+                <p className="font-['Anton'] text-[48px] text-primary">{stat.value}</p>
+                <p className="font-annotation text-annotation text-secondary">{stat.label}</p>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </motion.div>
     </section>

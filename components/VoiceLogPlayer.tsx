@@ -2,7 +2,6 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Icon } from "@/components/Icon";
 import { VoiceLog, VoiceLogCallout } from "@/data/projects";
 
 interface VoiceLogPlayerProps {
