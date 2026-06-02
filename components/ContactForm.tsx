@@ -3,6 +3,49 @@
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 
+// ── GH Pages: Formspree direct submission ──
+// When NEXT_PUBLIC_FORMSPREE_ID is set, form submits directly to Formspree.
+// Sign up at https://formspree.io, create a form, paste your form ID here.
+// Free tier: 50 submissions/month, email notifications, spam protection.
+
+async function submitViaFormspree(
+  name: string,
+  email: string,
+  message: string
+): Promise<{ success: boolean; error?: string }> {
+  const formId = process.env.NEXT_PUBLIC_FORMSPREE_ID;
+  if (!formId) return { success: false, error: "Form not configured." };
+
+  const res = await fetch(`https://formspree.io/f/${formId}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({ name, email, message }),
+  });
+
+  if (res.ok) return { success: true };
+  const json = await res.json().catch(() => ({}));
+  return { success: false, error: json?.errors?.[0]?.message ?? "Failed to send." };
+}
+
+// ── Server-side: local / self-hosted ──
+// POST to /api/contact (Next.js API route → OCI Object Storage)
+
+async function submitViaAPI(
+  name: string,
+  email: string,
+  message: string,
+  honeypot: string
+): Promise<{ success: boolean; error?: string }> {
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, message, honeypot }),
+  });
+  const json = await res.json();
+  if (!res.ok) return { success: false, error: json.error };
+  return { success: true };
+}
+
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
@@ -15,33 +58,31 @@ export function ContactForm() {
 
     const form = e.currentTarget;
     const data = new FormData(form);
+    const name = String(data.get("name") ?? "").trim();
+    const email = String(data.get("email") ?? "").trim().toLowerCase();
+    const message = String(data.get("message") ?? "").trim();
+    const honeypot = String(data.get("website") ?? "").trim();
 
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: data.get("name"),
-          email: data.get("email"),
-          message: data.get("message"),
-          honeypot: data.get("website"), // bots fill this
-        }),
-      });
-
-      const json = await res.json();
-
-      if (!res.ok) {
-        setErrorMsg(json.error || "Something went wrong. Try again.");
-        setStatus("error");
-        return;
-      }
-
+    // Honeypot — bots fill it, humans don't
+    if (honeypot) {
       setStatus("success");
       form.reset();
-    } catch {
-      setErrorMsg("Network error. Try again.");
-      setStatus("error");
+      return;
     }
+
+    const useFormspree = !!process.env.NEXT_PUBLIC_FORMSPREE_ID;
+    const result = useFormspree
+      ? await submitViaFormspree(name, email, message)
+      : await submitViaAPI(name, email, message, honeypot);
+
+    if (!result.success) {
+      setErrorMsg(result.error ?? "Something went wrong. Try again.");
+      setStatus("error");
+      return;
+    }
+
+    setStatus("success");
+    form.reset();
   }
 
   if (status === "success") {
