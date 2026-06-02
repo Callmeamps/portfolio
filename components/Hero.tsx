@@ -91,7 +91,7 @@ export function Hero() {
             href="#featured"
             className="sticker-btn sticker-btn-secondary -rotate-1 scanline-hover relative"
           >
-            <span className="relative z-10">ENTER THE VOID</span>
+            <span className="relative z-10">LOCK IN</span>
             <div className="scanline-overlay" />
           </a>
           <a
