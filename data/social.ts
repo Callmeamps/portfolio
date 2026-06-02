@@ -8,7 +8,7 @@ export const socialLinks: SocialLink[] = [
   {
     label: "Instagram",
     href: "https://instagram.com/callmeamps",
-    description: "Visual chaos & daily noise",
+    description: "Builds, aesthetics, and occasional madness.",
   },
   {
     label: "Twitter / X",
