@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Ntokozo Mthimunye | Portfolio",
+  title: "Amps | CallMeAmps — Builder, Madman, Augmented",
   description:
-    "Portfolio of Ntokozo Mthimunye - Full-stack developer, AI engineer, open-source contributor",
+    "Portfolio of Amps (CallMeAmps) — Building systems where humans and agents create together. AI agent platforms, creative tools, open-source infrastructure.",
 };
 
 export default function RootLayout({
@@ -25,7 +25,7 @@ export default function RootLayout({
           rel="preconnect"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;600;700&family=Space+Mono&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;600;700&family=Shadows+Into+Light&family=Space+Mono&display=swap"
           rel="stylesheet"
         />
       </head>

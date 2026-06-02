@@ -1,4 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Project } from "@/data/projects";
+import { Icon } from "@/components/Icon";
 
 interface ProjectCardProps {
   project: Project;
@@ -9,9 +13,12 @@ export function ProjectCard({ project, tilt = 1 }: ProjectCardProps) {
   const tiltClass = tilt === 2 ? "tilt-2" : tilt === 3 ? "tilt-3" : "tilt-1";
 
   return (
-    <div className={`chaos-card ${tiltClass} group relative`}>
+    <motion.div
+      className={`chaos-card ${tiltClass} group relative cursor-pointer`}
+      whileHover={{ scale: 1.03, rotate: 0, transition: { duration: 0.2 } }}
+    >
       <div className="mb-4">
-        <h3 className="font-headline-lg-mobile text-headline-lg-mobile text-primary leading-none mb-2 uppercase tracking-tighter">
+        <h3 className="font-['Anton'] text-[32px] text-primary leading-none mb-2 uppercase tracking-tighter">
           {project.name}
         </h3>
         <p className="font-annotation text-annotation text-secondary mb-2">
@@ -45,15 +52,10 @@ export function ProjectCard({ project, tilt = 1 }: ProjectCardProps) {
             </span>
           ))}
         </div>
-        <a
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="sticker-btn sticker-btn-primary text-sm"
-        >
-          →
-        </a>
+        <span className="sticker-btn sticker-btn-primary text-sm group-hover:bg-secondary transition-colors">
+          <Icon name="arrow-up-right" size={16} />
+        </span>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -1,40 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;600;700&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Hanken+Grotesk:wght@400;600;700&family=Shadows+Into+Light&family=Space+Mono&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Base typography overrides */
-body {
-  font-family: 'Hanken Grotesk', sans-serif;
-  background-color: #fff8f1;
-  color: #1e1b17;
+/* ── Root (OLED Dark) ── */
+
+:root {
+  --primary: #a8c4f4;
+  --on-primary: #00315a;
+  --secondary: #b09b7e;
+  --on-secondary: #2d1700;
+  --tertiary: #76ff03;
+  --shadow-ink: rgba(0, 0, 0, 0.85);
+  --grain-dot: rgba(255, 255, 255, 0.04);
+  --grid-line: rgba(255, 255, 255, 0.03);
 }
 
-/* Custom pattern for paper texture */
+body {
+  font-family: 'Hanken Grotesk', sans-serif;
+  background-color: #000000;
+  color: #d4d0cc;
+}
+
+/* ── Background Textures ── */
 .bg-grain {
-  background-image: radial-gradient(#bec7db 1px, transparent 1px);
+  background-image: radial-gradient(var(--grain-dot) 1px, transparent 1px);
   background-size: 20px 20px;
 }
 
-/* Marquee animation */
-.marquee-container {
-  display: flex;
-  overflow: hidden;
-  white-space: nowrap;
+.bg-grid-lines {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
-.marquee-content {
-  display: flex;
-  animation: marquee 20s linear infinite;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* Glitch hover effect */
+/* ── Glitch Hover ── */
 .glitch-hover:hover {
   animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   transform: translate(2px, 2px);
@@ -49,41 +51,138 @@ body {
   100% { transform: skew(0deg); }
 }
 
-/* Sticker button style */
+/* ── Sticker Button ── */
 .sticker-btn {
-  @apply px-4 py-2 border-2 border-primary font-sticker-label text-sticker-label font-bold transition-all;
-  box-shadow: 4px 4px 0px 0px rgba(4, 13, 27, 1);
+  @apply px-4 py-2 border-2 font-sticker-label text-sticker-label font-bold transition-all cursor-pointer;
+  background-color: var(--primary);
+  color: var(--on-primary);
+  border-color: var(--primary);
+  box-shadow: 4px 4px 0px 0px var(--shadow-ink);
 }
 
 .sticker-btn:hover {
   @apply scale-105;
 }
 
+.sticker-btn:active {
+  box-shadow: none;
+  transform: translate(2px, 2px);
+}
+
 .sticker-btn-secondary {
-  @apply bg-secondary text-on-secondary;
+  background-color: var(--secondary);
+  color: var(--on-secondary);
+  border-color: var(--secondary);
 }
 
-.sticker-btn-primary {
-  @apply bg-primary text-on-primary;
+.sticker-btn-ghost {
+  background-color: var(--surface-container-high);
+  color: var(--on-surface);
+  border-color: var(--outline);
 }
 
-/* Card with hard shadow */
+/* ── Chaos Card ── */
 .chaos-card {
-  @apply border-2 border-primary bg-white p-4 transition-all;
-  box-shadow: 8px 8px 0px 0px rgba(4, 13, 27, 1);
+  @apply border-2 bg-surface-container p-4 transition-all;
+  border-color: var(--primary);
+  box-shadow: 8px 8px 0px 0px var(--shadow-ink);
 }
 
 .chaos-card:hover {
   @apply scale-105 -rotate-1;
 }
 
-/* Text outline effect */
+/* ── Text Outline ── */
 .text-outline {
-  -webkit-text-stroke: 2px rgba(4, 13, 27, 0.15);
+  -webkit-text-stroke: 2px rgba(168, 196, 244, 0.15);
   color: transparent;
 }
 
-/* Tilted elements */
+/* ── Tilt Utilities ── */
 .tilt-1 { transform: rotate(-1.5deg); }
 .tilt-2 { transform: rotate(2deg); }
 .tilt-3 { transform: rotate(-2.5deg); }
+.rotate-tilt-primary { transform: rotate(-2deg); }
+.rotate-tilt-secondary { transform: rotate(1.5deg); }
+
+/* ── Thick Borders (page frames) ── */
+.border-thick { border-width: 8px; }
+.border-t-thick { border-top-width: 8px; }
+.border-b-thick { border-bottom-width: 8px; }
+.border-l-thick { border-left-width: 8px; }
+.border-r-thick { border-right-width: 8px; }
+.border-x-thick { border-left-width: 8px; border-right-width: 8px; }
+.border-y-thick { border-top-width: 8px; border-bottom-width: 8px; }
+
+/* ── Form Inputs (handwriting style) ── */
+.form-input-custom {
+  border: none;
+  border-bottom: 2px solid var(--primary);
+  background: transparent;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 1.5rem;
+  color: #75777d;
+  padding: 0.5rem 0;
+  border-radius: 0;
+  width: 100%;
+}
+
+.form-input-custom:focus {
+  outline: none;
+  box-shadow: none;
+  border-bottom: 2px solid var(--secondary);
+  color: #d4d0cc;
+}
+
+.form-input-custom::placeholder {
+  color: #75777d;
+  opacity: 0.7;
+}
+
+/* ── Text Glow ── */
+.text-glow {
+  text-shadow: 0 0 15px rgba(168, 196, 244, 0.4);
+}
+
+/* ── Scanline Hover Effect ── */
+.scanline-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-hover .scanline-overlay {
+  @apply absolute inset-0 bg-primary/20 translate-y-full transition-transform duration-300;
+}
+
+.scanline-hover:hover .scanline-overlay {
+  @apply translate-y-0;
+}
+
+/* ── Tape Effect (polaroid tape) ── */
+.tape-effect::before {
+  content: '';
+  @apply absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 -rotate-6 pointer-events-none;
+  background-color: var(--surface-container-high);
+  opacity: 0.8;
+  border: 2px solid var(--primary);
+}
+
+/* ── Selection ── */
+::selection {
+  background-color: var(--secondary);
+  color: #000000;
+}
+
+/* ── Smooth Scroll ── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Page Transition Wrapper ── */
+.page-enter {
+  @apply opacity-0 translate-y-4;
+}
+
+.page-enter-active {
+  @apply opacity-100 translate-y-0 transition-all duration-500;
+}

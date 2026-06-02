@@ -1,47 +1,92 @@
 "use client";
 
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
 export function Hero() {
   return (
-    <section className="lg:pl-80 min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden pt-40 lg:pt-0 pb-40">
+    <section className="lg:pl-56 min-h-[80vh] lg:min-h-screen flex items-center justify-center px-4 py-20 relative overflow-hidden pt-24 lg:pt-0 pb-20 lg:pb-40">
       {/* Background floating elements */}
-      <div className="absolute top-1/4 left-1/4 -rotate-12 opacity-30 select-none pointer-events-none">
-        <span className="font-headline-xl text-headline-xl text-primary-fixed-dim">*</span>
-      </div>
-      <div className="absolute bottom-1/3 right-[10%] rotate-45 opacity-30 select-none pointer-events-none">
-        <span className="font-headline-xl text-headline-xl text-primary-fixed-dim">+</span>
-      </div>
+      <motion.div
+        className="absolute top-1/4 left-1/4 -rotate-12 opacity-30 select-none pointer-events-none"
+        animate={{ y: [0, -15, 0], rotate: [-12, -8, -12] }}
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <span className="font-['Anton'] text-[100px] md:text-[150px] text-primary-fixed-dim">*</span>
+      </motion.div>
+      <motion.div
+        className="absolute bottom-1/3 right-[10%] rotate-45 opacity-30 select-none pointer-events-none"
+        animate={{ y: [0, 10, 0], rotate: [45, 40, 45] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <span className="font-['Anton'] text-[100px] md:text-[150px] text-primary-fixed-dim">+</span>
+      </motion.div>
 
       {/* Backdrop glitch text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5">
-        <h2 className="font-headline-xl text-headline-xl text-primary tracking-tighter whitespace-nowrap text-[150px] lg:text-[200px]">
-          CHAOS GEN
+      <motion.div
+        className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-5"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.05 }}
+        transition={{ duration: 1, delay: 0.5 }}
+      >
+        <h2 className="font-['Anton'] text-[80px] sm:text-[120px] lg:text-[180px] text-primary tracking-tighter whitespace-nowrap">
+          BUILD
         </h2>
-      </div>
+      </motion.div>
 
       {/* Central composition */}
-      <div className="relative z-20 max-w-4xl text-center">
+      <motion.div
+        className="relative z-20 max-w-4xl text-center"
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
         {/* Primary Hero Text */}
-        <h2 className="font-headline-xl text-headline-xl lg:text-[180px] text-primary tracking-tighter leading-none mb-6 glitch-hover -rotate-1" style={{textShadow: "8px 8px 0px #b22a23"}}>
-          NTOKOZO
-        </h2>
+        <motion.h2
+          className="font-['Anton'] text-[48px] sm:text-[72px] lg:text-[140px] text-primary tracking-tighter leading-none mb-6 glitch-hover -rotate-1 cursor-crosshair"
+          style={{ textShadow: "8px 8px 0px #8b6a4a" }}
+          variants={item}
+        >
+          AMPS
+        </motion.h2>
 
         {/* Annotation */}
-        <div className="bg-primary text-on-primary font-annotation text-annotation px-4 py-2 mb-12 inline-block -rotate-tilt-primary border-2 border-primary" style={{boxShadow: "4px 4px 0px 0px #b22a23"}}>
-          <p>FULL-STACK ENGINEER // AI ARCHITECT</p>
-        </div>
+        <motion.div
+          className="bg-primary text-on-primary font-annotation text-annotation px-4 py-2 mb-12 inline-block rotate-tilt-primary"
+          style={{ boxShadow: "4px 4px 0px 0px #8b6a4a" }}
+          variants={item}
+        >
+          <p>MADMAN // BUILDER // AUGMENTED</p>
+        </motion.div>
 
         {/* Subheading */}
-        <p className="text-body-lg font-bold text-on-surface mb-12 max-w-2xl mx-auto">
-          Building intelligent systems, design tools, and agent orchestration platforms with punk-tech chaos
-        </p>
+        <motion.p
+          className="text-body-lg font-bold text-on-surface mb-12 max-w-2xl mx-auto"
+          variants={item}
+        >
+          Building systems where humans and agents create together
+        </motion.p>
 
         {/* CTA Buttons */}
-        <div className="flex gap-4 justify-center flex-wrap mb-12">
+        <motion.div className="flex gap-4 justify-center flex-wrap mb-12" variants={item}>
           <a
             href="#featured"
-            className="sticker-btn sticker-btn-secondary -rotate-1"
+            className="sticker-btn sticker-btn-secondary -rotate-1 scanline-hover relative"
           >
-            ENTER THE VOID
+            <span className="relative z-10">ENTER THE VOID</span>
+            <div className="scanline-overlay" />
           </a>
           <a
             href="https://github.com/Callmeamps"
@@ -51,24 +96,30 @@ export function Hero() {
           >
             GITHUB
           </a>
-        </div>
+        </motion.div>
 
         {/* Stats Grid */}
-        <div className="grid grid-cols-3 gap-4 mt-12">
-          <div className="chaos-card tilt-1">
-            <p className="font-headline-lg text-headline-lg-mobile text-primary">64</p>
-            <p className="font-annotation text-annotation text-secondary">PUBLIC REPOS</p>
-          </div>
-          <div className="chaos-card tilt-2">
-            <p className="font-headline-lg text-headline-lg-mobile text-primary">100%</p>
-            <p className="font-annotation text-annotation text-secondary">OPEN SOURCE</p>
-          </div>
-          <div className="chaos-card tilt-3">
-            <p className="font-headline-lg text-headline-lg-mobile text-primary">∞</p>
-            <p className="font-annotation text-annotation text-secondary">PASSION</p>
-          </div>
-        </div>
-      </div>
+        <motion.div
+          className="grid grid-cols-3 gap-4 mt-12"
+          variants={item}
+        >
+          {[
+            { value: "7", label: "PROJECTS" },
+            { value: "100%", label: "OPEN SOURCE" },
+            { value: "∞", label: "BUILDS" },
+          ].map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              className={`chaos-card ${i === 0 ? "tilt-1" : i === 1 ? "tilt-2" : "tilt-3"}`}
+              whileHover={{ scale: 1.05, rotate: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              <p className="font-['Anton'] text-[48px] text-primary">{stat.value}</p>
+              <p className="font-annotation text-annotation text-secondary">{stat.label}</p>
+            </motion.div>
+          ))
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

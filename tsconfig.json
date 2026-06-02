@@ -26,6 +26,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": ["app/**/*", "components/**/*", "data/**/*", "next-env.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
