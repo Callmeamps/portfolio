@@ -48,7 +48,7 @@ export default function ContactPage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
           >
-            HIT US UP
+            LOCK IN
           </motion.h1>
         </section>
 

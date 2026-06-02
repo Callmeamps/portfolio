@@ -48,7 +48,7 @@ export default function AboutPage() {
               className="font-['Anton'] text-[80px] lg:text-[150px] text-primary tracking-tighter leading-[0.85] mb-6 -rotate-1 glitch-hover cursor-crosshair"
               style={{ textShadow: "8px 8px 0px #8b6a4a" }}
             >
-              THE<br />BLUEPRINT
+              MadOne
             </h1>
 
             <div className="bg-primary text-on-primary font-annotation text-annotation px-4 py-2 mb-8 inline-block rotate-tilt-primary" style={{ boxShadow: "4px 4px 0px 0px #8b6a4a" }}>
