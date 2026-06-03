@@ -1,4 +1,6 @@
 import type { NextConfig } from "next";
+import { writeFileSync } from "fs";
+import { join } from "path";
 
 const isGithubPages = process.env.GITHUB_PAGES === "true";
 
@@ -11,5 +13,10 @@ const nextConfig: NextConfig = {
     images: { unoptimized: true },
   }),
 };
+
+// Create .nojekyll for GitHub Pages (prevents Jekyll ignoring _next/)
+if (isGithubPages) {
+  writeFileSync(join(process.cwd(), "out", ".nojekyll"), "");
+}
 
 export default nextConfig;
