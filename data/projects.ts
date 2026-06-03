@@ -64,6 +64,7 @@ export const projects: Project[] = [
     description:
       "Browser-first AI agent runtime. The agent lives in your browser — it can build tools, browse the web, and execute code on the fly. Connect any OpenAI-compatible API: OpenRouter, OpenAI, local Ollama, whatever you want. Thin server, no build step, Alpine.js for reactivity. Security-first: AES-256-GCM password sealing, SCRAM-SHA-256 challenge-response, HMAC-SHA256 session signing.",
     url: "https://github.com/Callmeamps/cybernaut",
+    liveUrl: "https://cybernaut.onrender.com",
     featured: true,
     languages: ["JavaScript", "Alpine.js", "Node.js"],
     stars: 0,
@@ -120,6 +121,7 @@ export const projects: Project[] = [
     description:
       "Local-first production environment combining chat, terminal, tasks, agents, and dashboards in one unified space. FastAPI backend with SQLite via aiosqlite for local data persistence. WebSocket event broadcasting. No cloud dependencies — runs entirely on your machine.",
     url: "https://github.com/Callmeamps/superposition",
+    liveUrl: "https://superposition.onrender.com",
     featured: true,
     languages: ["Python", "FastAPI", "SQLite"],
     stars: 0,
@@ -185,7 +187,8 @@ export const projects: Project[] = [
     slug: "zonke",
     description:
       "AI Native Studio — consultancy site for helping companies integrate AI into their workflows. Multi-funnel lead generation: AI audits, tender vault, real estate analysis. Supabase backend with Netlify serverless functions. Industrial Brutalist Terminal design. Deployed across Netlify, Render, and OCI.",
-    url: "https://zonke.studio",
+    url: "https://github.com/Callmeamps/zonke",
+    liveUrl: "https://zonke-website.onrender.com",
     featured: false,
     languages: ["HTML", "Tailwind CSS", "Supabase", "Netlify"],
     stars: 0,
