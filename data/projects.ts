@@ -59,35 +59,6 @@ export const projects: Project[] = [
     },
   },
   {
-    name: "cybernaut",
-    slug: "cybernaut",
-    description:
-      "Browser-first AI agent runtime. The agent lives in your browser — it can build tools, browse the web, and execute code on the fly. Connect any OpenAI-compatible API: OpenRouter, OpenAI, local Ollama, whatever you want. Thin server, no build step, Alpine.js for reactivity. Security-first: AES-256-GCM password sealing, SCRAM-SHA-256 challenge-response, HMAC-SHA256 session signing.",
-    url: "https://github.com/Callmeamps/cybernaut",
-    liveUrl: "https://cybernaut.onrender.com",
-    featured: true,
-    languages: ["JavaScript", "Alpine.js", "Node.js"],
-    stars: 0,
-    updatedAt: "2026-06-01",
-    highlights: [
-      "Browser-first architecture",
-      "No build step — ES modules served directly",
-      "SCRAM-SHA-256 password security",
-      "Any OpenAI-compatible API",
-    ],
-    status: "live",
-    voiceLog: {
-      src: "https://objectstorage.us-phoenix-1.oraclecloud.com/n/axwz1x1bmy93/b/portfolio-audio/o/cybernaut-voice-log.mp3",
-      duration: 150,
-      callouts: [
-        { time: 0, text: "This is Cybernaut.", placement: "title" },
-        { time: 5, text: "Your AI agent lives in your browser.", placement: "description" },
-        { time: 15, text: "No build step. Alpine.js for reactivity.", placement: "tech" },
-        { time: 25, text: "AES-256-GCM. SCRAM-SHA-256. Real security.", placement: "highlights" },
-      ],
-    },
-  },
-  {
     name: "spectrum",
     slug: "spectrum",
     description:
