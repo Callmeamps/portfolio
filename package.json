@@ -8,7 +8,7 @@
     "start": "next start -p 33628",
     "lint": "next lint",
     "deploy": "gh-pages -d out",
-    "deploy:gh-pages": "rm -rf app/api && GITHUB_PAGES=true next build && git checkout app/api && gh-pages -d out --dotfile"
+    "deploy:gh-pages": "rm -rf app/api && GITHUB_PAGES=true next build && git checkout app/api && gh-pages -d out --dotfiles"
   },
   "dependencies": {
     "framer-motion": "^12.40.0",
